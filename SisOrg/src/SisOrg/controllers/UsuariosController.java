@@ -12,18 +12,18 @@ import SisOrg.models.Usuario;
 
 @Controller
 public class UsuariosController {
-	@RequestMapping ("sistema/index")
 	
+	@RequestMapping ("sistema/index")
 	public String index() {
 		
 		return "sistema/index";
 	}
 
-	@RequestMapping ("usuarios/form")
+	@RequestMapping ("usuarios/form-cadastro")
 	public String form(){
 		System.out.println("Acessando um formulário de contatos");
 		
-		return "usuarios/form";
+		return "usuarios/form-cadastro";
 	}
 	
 	 @RequestMapping (value= "usuarios", method=RequestMethod.POST)
@@ -33,7 +33,7 @@ public class UsuariosController {
 		UsuarioDAO dao = new UsuarioDAO ();
 		dao.inserir(u);
 		
-		return "redirect:sistema/index";
+		return "sistema/home";
 		
 	}
 	 @RequestMapping (value= "usuarioss", method=RequestMethod.GET)

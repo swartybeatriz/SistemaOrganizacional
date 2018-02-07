@@ -5,6 +5,11 @@ import java.util.Calendar;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Notas {
+	
+	private String nome; 
+	private String conteudo;
+	@DateTimeFormat(pattern= "dd/MM/yyyy")
+	private Calendar dataCriacaoNotas;
 
 	private long id ;
 	public long getId() {
@@ -31,8 +36,5 @@ public class Notas {
 	public void setDataCriacaoNotas(Calendar dataCriacaoNotas) {
 		this.dataCriacaoNotas = dataCriacaoNotas;
 	}
-	private String nome; 
-	private String conteudo;
-	@DateTimeFormat(pattern= "dd/MM/yyyy")
-	private Calendar dataCriacaoNotas;
+
 }
