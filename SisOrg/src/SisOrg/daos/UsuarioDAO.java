@@ -96,12 +96,6 @@ public class UsuarioDAO {
 		
 		return result;
 		
-
-		
-		
-		
-	
-	
 	}
 	public List<Usuario> getLista() {
 		List<Usuario> result = new ArrayList<>();
@@ -129,5 +123,33 @@ public class UsuarioDAO {
 
 		return result;
 	}
+	
+	public boolean checkLogin ( Usuario usuario) {
+		
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		boolean check = false;
+		
+		try{ 
+			stmt = connection.prepareStatement ( "SELECT * FROM usuarios WHERE email= ? and senha = ?");
+			rs = stmt.executeQuery ();
+			stmt.setString(1,usuario.getEmail());
+			stmt.setString(2,usuario.getSenha());
+			stmt.execute();
+			stmt.close();
+			
+			
+			if (rs.next()){
+				
+				check = true;
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	
+		return check;
 
+}
 }

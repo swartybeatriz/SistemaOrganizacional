@@ -86,5 +86,26 @@ public class UsuariosController {
 			return listar() ;
 			
 		}
+		
+		
+		public ModelAndView validarLogin (Usuario u) {
+			
+			UsuarioDAO dao = new UsuarioDAO();
+			
+			dao.checkLogin(u);
+			
+			if ( ) {
+				
+				return " sistema/home" ;
+			}
+			
+			
+			return null;
+			
+			
+			
+		}
+		
+		
 	
 }
