@@ -16,7 +16,7 @@ public class NotasDAO {
 	
 	public boolean inserir(Notas notas) {
 
-		String sql = "insert into usuarios (nome,texto, dataCriacao) " + "values ( ?, ?, ?);";
+		String sql = "insert into notas (nome,texto, dataCriacao) " + "values ( ?, ?, ?);";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);

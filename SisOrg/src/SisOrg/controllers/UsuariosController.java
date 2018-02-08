@@ -21,7 +21,7 @@ public class UsuariosController {
 
 	@RequestMapping ("usuarios/form-cadastro")
 	public String form(){
-		System.out.println("Acessando um formulário de contatos");
+		System.out.println("Acessando um formulário de usuarios");
 		
 		return "usuarios/form-cadastro";
 	}
@@ -36,7 +36,7 @@ public class UsuariosController {
 		return "sistema/home";
 		
 	}
-	 @RequestMapping (value= "usuarioss", method=RequestMethod.GET)
+	 @RequestMapping (value= "usuarios", method=RequestMethod.GET)
 		public ModelAndView listar () {
 			UsuarioDAO dao = new UsuarioDAO ();
 			List<Usuario> contatos = dao.getLista();
