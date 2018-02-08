@@ -14,11 +14,11 @@ public class CadernoController {
 		return "sistema/index";
 	}
 
-	@RequestMapping ("cadernos/form-caderno")
-	public String form(){
+	@RequestMapping ("usuarios/form")
+	public String form2(){
 		System.out.println("Acessando um formulário de cadernos");
 		
-		return "cadernos/form-caderno";
+		return "usuarios/form";
 	}
 	
 	@RequestMapping (value= "cadernos", method=RequestMethod.POST)
