@@ -3,9 +3,8 @@ package SisOrg.daos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 import SisOrg.models.Cadernos;
-import SisOrg.models.Usuario;
+
 
 
 public class CadernosDAO {
