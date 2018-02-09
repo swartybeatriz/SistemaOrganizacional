@@ -9,7 +9,7 @@ public class HomeController {
 	public String index (){
 		
 		System.out.println("Entrando na Home do Sistema! ");
-		return "home";
+		return "sistema/home";
 		
 	}
 }

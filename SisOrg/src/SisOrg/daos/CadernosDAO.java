@@ -19,7 +19,7 @@ public class CadernosDAO {
 
 	public boolean inserir(Cadernos caderno) {
 
-		String sql = "insert into usuarios (nome) " + "values ( ?);";
+		String sql = "insert into cadernos (nome) " + "values ( ?);";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);

@@ -2,6 +2,7 @@ package SisOrg.controllers;
 
 import java.util.List;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,20 +13,16 @@ import SisOrg.models.Cadernos;
 import SisOrg.models.Usuario;
 
 
-
+@Controller 
 public class CadernoController {
 	
-	@RequestMapping ("sistema/index")
-	public String index() {
-		
-		return "sistema/index";
-	}
 
-	@RequestMapping ("Cadernos/form-cadastro")
+
+	@RequestMapping ("cadernos/form")
 	public String formCaderno(){
 		System.out.println("Acessando um formulário de cadernos");
 		
-		return "Cadernos/form-cadastro";
+		return "cadernos/form-cadastro";
 	}
 	
 	 @RequestMapping (value= "cadernos", method=RequestMethod.POST)
@@ -38,7 +35,7 @@ public class CadernoController {
 		return "sistema/home";
 		
 	}
-	 @RequestMapping (value= "usuarios", method=RequestMethod.GET)
+	 @RequestMapping (value= "cadernos", method=RequestMethod.GET)
 		public ModelAndView listar () {
 			UsuarioDAO dao = new UsuarioDAO ();
 			List<Usuario> cadernos = dao.getLista();
@@ -48,7 +45,7 @@ public class CadernoController {
 			
 			return modelAndView;
 		}
-	 @RequestMapping ( value = "removerusuarios")
+	 @RequestMapping ( value = "removercadernos")
 		
 		public ModelAndView remover (Usuario u) {
 

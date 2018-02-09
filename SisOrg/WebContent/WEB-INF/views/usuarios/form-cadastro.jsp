@@ -18,7 +18,7 @@
 		</div>
 		<div>
 			<label>Senha: </label>
-			<input type="text" name="endereco" />
+			<input type="text" name="senha" />
 		</div>
 		<div>
 			<button type="submit">Adicionar</button>

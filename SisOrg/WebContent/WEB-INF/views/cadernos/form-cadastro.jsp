@@ -13,6 +13,7 @@
 			<input type="text" name="nome" />
 		</div>
 		
+		<div>
 			<button type="submit">Adicionar</button>
 		</div>
 

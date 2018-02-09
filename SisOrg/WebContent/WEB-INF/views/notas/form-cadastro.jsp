@@ -13,14 +13,10 @@
 			<input type="text" name="nome" />
 		</div>
 		<div>
-			<label>Email: </label>
+			<label>Conteudo: </label>
 			<input type="text" name="email" />
 		</div>
-		<div>
-			<label>Senha: </label>
-			<input type="text" name="endereco" />
-		</div>
-		<div>
+		
 			<button type="submit">Adicionar</button>
 		</div>
 
