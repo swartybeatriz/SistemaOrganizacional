@@ -94,10 +94,10 @@ public class UsuariosController {
 			
 			dao.checkLogin(u);
 			
-			if ( ) {
-				
-				return " sistema/home" ;
-			}
+//			if ( ) {
+//				
+//				return "sistema/home" ;
+//			}
 			
 			
 			return null;
