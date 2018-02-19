@@ -27,7 +27,7 @@ public class NotasDAO {
 
 			stmt.setString(1, notas.getNome());
 			stmt.setString(2, notas.getConteudo());
-			stmt.setDate(4, new java.sql.Date(notas.getDataCriacaoNotas().getTimeInMillis()));
+
 
 		
 			stmt.execute();
@@ -42,14 +42,12 @@ public class NotasDAO {
 	
 	}
 	
-	public boolean alterar(Usuario notas) {
+	public boolean alterar(Notas notas) {
 		String sql = "update contatos set nome=?, texto=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, notas.getNome());
-			stmt.setString(2, notas.getEmail());
-			stmt.setString(3, notas.getSenha());
-			stmt.setLong(4, notas.getId());
+			stmt.setString(2, notas.getConteudo());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {

@@ -27,7 +27,6 @@ public class UsuarioDAO {
 			stmt.setString(2, usuario.getEmail());
 			stmt.setString(3, usuario.getSenha());
 
-		
 			stmt.execute();
 			stmt.close();
 
@@ -39,6 +38,7 @@ public class UsuarioDAO {
 
 		return true;
 	}
+
 	public boolean alterar(Usuario usuario) {
 		String sql = "update contatos set nome=?, email=?, senha=?, where id=?";
 		try {
@@ -68,10 +68,9 @@ public class UsuarioDAO {
 		}
 		return true;
 	}
-	
-	
+
 	public Usuario getById(long id) {
-		
+
 		Usuario result = null;
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement("select * from contatos where id =?;");
@@ -86,17 +85,17 @@ public class UsuarioDAO {
 				result.setEmail(rs.getString("email"));
 				result.setSenha(rs.getString("senha"));
 
-				}
+			}
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		
 		return result;
-		
+
 	}
+
 	public List<Usuario> getLista() {
 		List<Usuario> result = new ArrayList<>();
 
@@ -112,7 +111,6 @@ public class UsuarioDAO {
 				usuario.setEmail(rs.getString("email"));
 				usuario.setSenha(rs.getString("senha"));
 
-				
 				result.add(usuario);
 			}
 			rs.close();
@@ -123,33 +121,39 @@ public class UsuarioDAO {
 
 		return result;
 	}
-	
-	public boolean checkLogin ( Usuario usuario) {
-		
+
+	public boolean checkLogin(Usuario usuario) {
+
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		boolean check = false;
-		
-		try{ 
-			stmt = connection.prepareStatement ( "SELECT * FROM usuarios WHERE email= ? and senha = ?");
-			rs = stmt.executeQuery ();
-			stmt.setString(1,usuario.getEmail());
-			stmt.setString(2,usuario.getSenha());
-			stmt.execute();
-			stmt.close();
+
+		try {
+			stmt = connection.prepareStatement("SELECT * FROM usuarios WHERE email=? and senha=?;");
+
+			stmt.setString(1, usuario.getEmail());
+			stmt.setString(2, usuario.getSenha());
+			rs = stmt.executeQuery();
 			
-			
-			if (rs.next()){
-				
+			if (rs.next()) {
+
 				check = true;
-				
+
 			}
+			
+			rs.close();
+			stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-	
+
 		return check;
 
-}
+	}
+
+	public boolean existeUsuario(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

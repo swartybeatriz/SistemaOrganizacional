@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,19 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/SisOrg/notas" method= "post" >
-	<div>
-			<label>Nome: </label>
-			<input type="text" name="nome" />
-		</div>
-		<div>
-			<label>Conteudo: </label>
-			<input type="text" name="conteudo" />
-		</div>
-		
-			<button type="submit">Adicionar</button>
-		</div>
-
+	<h2>Página de Login das Anotações</h2>
+	<form action="efetuaLogin" method="post">
+		Login: <input type="text" name="email" /> <br /> Senha: <input
+			type="password" name="senha" /> <br /> <input type="submit"
+			value="Entrar nas tarefas" />
 	</form>
 </body>
 </html>
