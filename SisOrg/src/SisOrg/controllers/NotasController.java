@@ -4,8 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import SisOrg.daos.NotasDAO;
-import SisOrg.models.Notas;
+import SisOrg.daos.NotaDAO;
+import SisOrg.models.Nota;
 
 @Controller
 public class NotasController {
@@ -19,9 +19,9 @@ public class NotasController {
 	
 	 @RequestMapping (value= "notas", method=RequestMethod.POST)
 		
-	 public String gravar ( Notas n) {
+	 public String gravar ( Nota n) {
 		
-		NotasDAO dao = new NotasDAO();
+		NotaDAO dao = new NotaDAO();
 		dao.inserir(n);
 		
 		return "sistema/home";

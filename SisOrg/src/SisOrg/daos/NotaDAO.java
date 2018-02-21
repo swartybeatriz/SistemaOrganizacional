@@ -7,26 +7,28 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import SisOrg.models.Notas;
+import SisOrg.models.Nota;
 import SisOrg.models.Usuario;
 
 
-public class NotasDAO {
+public class NotaDAO {
 	private Connection connection;
 
-	public NotasDAO() {
+	public NotaDAO() {
 		connection = ConnectionFactory.getConnection();
 	}
 	
-	public boolean inserir(Notas notas) {
+	public boolean inserir(Nota nota) {
 
-		String sql = "insert into notas (nome, texto) " + "values ( ?, ?);";
+		String sql = "insert into notas (nome, texto, id_caderno) " + "values ( ?, ?, ?);";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, notas.getNome());
-			stmt.setString(2, notas.getConteudo());
+			
+			stmt.setString(1, nota.getNome());
+			stmt.setString(2, nota.getConteudo());
+			stmt.setLong(3, nota.getCaderno().getId());
 
 
 		
@@ -42,7 +44,7 @@ public class NotasDAO {
 	
 	}
 	
-	public boolean alterar(Notas notas) {
+	public boolean alterar(Nota notas) {
 		String sql = "update contatos set nome=?, texto=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -98,8 +100,8 @@ public class NotasDAO {
 		return result;
 		
 	}
-	public List<Notas> getLista() {
-		List<Notas> result = new ArrayList<>();
+	public List<Nota> getLista() {
+		List<Nota> result = new ArrayList<>();
 
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement("select * from notas");
@@ -107,7 +109,7 @@ public class NotasDAO {
 
 			while (rs.next()) {
 				// criando o objeto Contato
-				Notas notas = new Notas();
+				Nota notas = new Nota();
 				notas.setId(rs.getLong("id"));
 				notas.setNome(rs.getString("nome"));
 				notas.setConteudo(rs.getString("texto")); // texto no banco, conteudo no model

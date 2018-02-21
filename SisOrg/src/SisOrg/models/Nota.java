@@ -4,13 +4,13 @@ import java.util.Calendar;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class Notas {
+public class Nota {
 
 	private String nome;
 	private String conteudo;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataCriacaoNotas;
-
+	private Caderno caderno;
 	private Long id;
 
 	public Long getId() {
@@ -54,5 +54,14 @@ public class Notas {
 		this.setSenha(string);
 
 	}
+	
+	public Caderno getCaderno() {
+		return caderno;
+	}
+
+	public void setCaderno(Caderno caderno) {
+		this.caderno = caderno;
+	}
+
 
 }

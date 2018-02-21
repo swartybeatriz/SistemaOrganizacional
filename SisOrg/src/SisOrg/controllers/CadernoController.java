@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import SisOrg.daos.CadernosDAO;
 import SisOrg.daos.UsuarioDAO;
-import SisOrg.models.Cadernos;
+import SisOrg.models.Caderno;
 import SisOrg.models.Usuario;
 
 
@@ -27,7 +27,7 @@ public class CadernoController {
 	
 	 @RequestMapping (value= "cadernos", method=RequestMethod.POST)
 		
-	 public String gravar (Cadernos c) {
+	 public String gravar (Caderno c) {
 		
 		CadernosDAO dao = new CadernosDAO ();
 		dao.inserir(c);
@@ -65,7 +65,7 @@ public class CadernoController {
 			
 			
 			CadernosDAO dao = new CadernosDAO() ;
-			Cadernos c = dao.getById(id);
+			Caderno c = dao.getById(id);
 			
 			ModelAndView modelAndView = new ModelAndView ("cadernos/form2");
 			modelAndView.addObject ("caderno", c);
@@ -77,7 +77,7 @@ public class CadernoController {
 		
 		@RequestMapping ( value = "cadernos/alterar")
 		
-		public ModelAndView alterarcadernos ( Cadernos c ){
+		public ModelAndView alterarcadernos ( Caderno c ){
 			
 			
 			CadernosDAO dao = new CadernosDAO();
