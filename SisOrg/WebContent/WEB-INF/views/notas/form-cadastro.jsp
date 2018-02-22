@@ -15,8 +15,8 @@
 		<div>
 			<label>Caderno: </label> 
 			<select name="caderno.id">
-				<c:forEach var="caderno" itens="${cadernos}">
-					<option value="${caderno.id}">${caderno.nome }</option>
+				<c:forEach var="caderno" itens ="${cadernos}">
+					<option value="${caderno.id}">${caderno.nome}</option>
 				</c:forEach>
 			</select>
 		</div>
@@ -24,7 +24,7 @@
 		<div>
 			<label>Conteudo: </label> <input type="text" name="conteudo" />
 		</div>
-
+<div>
 		<button type="submit">Adicionar</button>
 		</div>
 

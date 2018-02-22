@@ -82,7 +82,7 @@ public class NotaDAO {
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				// criando o objeto Contato
+				
 				result = new Usuario();
 				result.setId(rs.getLong("id"));
 				result.setNome(rs.getString("nome"));
@@ -108,7 +108,7 @@ public class NotaDAO {
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				// criando o objeto Contato
+		
 				Nota notas = new Nota();
 				notas.setId(rs.getLong("id"));
 				notas.setNome(rs.getString("nome"));

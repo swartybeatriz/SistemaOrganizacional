@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import SisOrg.daos.CadernosDAO;
-import SisOrg.daos.UsuarioDAO;
+
 import SisOrg.models.Caderno;
-import SisOrg.models.Usuario;
+
 
 
 @Controller 
@@ -37,8 +37,8 @@ public class CadernoController {
 	}
 	 @RequestMapping (value= "cadernos", method=RequestMethod.GET)
 		public ModelAndView listar () {
-			UsuarioDAO dao = new UsuarioDAO ();
-			List<Usuario> cadernos = dao.getLista();
+			CadernosDAO dao = new CadernosDAO();
+			List<Caderno> cadernos = dao.getLista();
 			
 			ModelAndView modelAndView = new ModelAndView ("cadernos/listar");
 			modelAndView.addObject ("cadernos", cadernos);
@@ -47,12 +47,12 @@ public class CadernoController {
 		}
 	 @RequestMapping ( value = "removercadernos")
 		
-		public ModelAndView remover (Usuario u) {
+		public ModelAndView remover (Caderno c) {
 
 			
-			UsuarioDAO dao = new UsuarioDAO();
+			CadernosDAO dao = new CadernosDAO();
 			
-			dao.remover(u);
+			dao.remover(c);
 			
 			System.out.println("Excluindo caderno... ");
 			return listar();	
