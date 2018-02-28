@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -70,29 +71,27 @@ li.dropdown {
 <title>Navegação</title>
 </head>
 <body>
-
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-          <c:import url="cabeçalho.jsp" />
+	<c:import url="cabeçalho.jsp" />
 
 	<div class="center">
 
-	<div class = "ul">
-	<div class = "li">
-		<ul>
-			<li><a href="#home">Home</a></li>
-			<li class="dropdown"><a href="javascript:void(0)"
-				class="dropbtn">New</a>
-				<div class="dropdown-content">
-					<a href="#">Caderno</a> <a href="#">Nota</a> <a href="#">Link 3</a>
-				</div></li>
-			<li><a href="#news">Cadernos</a></li>
-			<li style="float: right"><a href="#about">Conta</a></li>
+		<div class="ul">
+			<div class="li">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li class="dropdown"><a href="javascript:void(0)"
+						class="dropbtn">New</a>
+						<div class="dropdown-content">
+							<a href="#">Caderno</a> <a href="#">Nota</a> <a href="#">Link
+								3</a>
+						</div></li>
+					<li><a href="#news">Cadernos</a></li>
+					<li style="float: right"><a href="#about">Conta</a></li>
 
 
-		</ul>
-	</div>
-	</div>
+				</ul>
+			</div>
+		</div>
 	</div>
 
 	<c:import url="rodape.jsp" />
