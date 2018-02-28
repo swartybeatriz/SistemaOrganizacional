@@ -17,7 +17,6 @@ import SisOrg.models.Caderno;
 public class CadernoController {
 	
 
-
 	@RequestMapping ("cadernos/form")
 	public String formCaderno(){
 		System.out.println("Acessando um formulário de cadernos");
@@ -35,6 +34,8 @@ public class CadernoController {
 		return "sistema/home";
 		
 	}
+	 
+	
 	 @RequestMapping (value= "cadernos", method=RequestMethod.GET)
 		public ModelAndView listar () {
 			CadernosDAO dao = new CadernosDAO();
@@ -59,9 +60,9 @@ public class CadernoController {
 		}
 		
 		
-		@RequestMapping ( value = "cadernos/selecionarContatos")
+		@RequestMapping ("cadernos/selecionar")
 		
-		public ModelAndView CadernoUsuarios (Long id) {
+		public ModelAndView Selecionar (Long id) {
 			
 			
 			CadernosDAO dao = new CadernosDAO() ;
@@ -75,10 +76,9 @@ public class CadernoController {
 			
 		}
 		
-		@RequestMapping ( value = "cadernos/alterar")
+		@RequestMapping ( "cadernos/alterar")
 		
 		public ModelAndView alterarcadernos ( Caderno c ){
-			
 			
 			CadernosDAO dao = new CadernosDAO();
 			dao.alterar(c);

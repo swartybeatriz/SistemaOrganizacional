@@ -4,14 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/cadastro.css" />
-
+<link rel="stylesheet" type="text/css" href="/cadastro.css" />
 <title>Insert title here</title>
 </head>
 <body>
@@ -20,17 +18,17 @@
 	<c:import url="cabeçalho.jsp" />
 	
 	<div class="center">
-			<form action="efetuaLogin" method="post">
+		<form>
 			<i class="fa fa-cloud"
 				style="font-size: 40px; color: lightblue; margin-left: 325px;">
 			</i>
 			
 			<h1>Entrar</h1>
 			<label for="fname">Email</label> <input type="text" id="fname"
-				name="email" placeholder="Your name.."> 
+				name="firstname" placeholder="Your name.."> 
 				
 			<label for="lname">Senha</label> <input type="password" id="lname"
-				name="senha" placeholder="Your password..">
+				name="lastname" placeholder="Your password..">
 			 <input
 				type="submit" value="Login"> <span class="psw">Não
 				possui conta ? <a href="#"> Cadastre-se aqui</a>
@@ -38,10 +36,6 @@
 		</form>
 
 	</div>
-	
 	<c:import url="rodape.jsp" />
-
-		
-	</form>
 </body>
 </html>

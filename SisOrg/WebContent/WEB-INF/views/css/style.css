@@ -1,0 +1,171 @@
+@CHARSET "ISO-8859-1";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #000000;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+body {
+    font-size: 12pt;
+    line-height: 1.75em;
+    font-family: Georgia, serif;
+    background: #000000;
+    color: #382b31;
+}
+h1 a{
+	text-transform: uppercase;
+}
+br.clear {
+    clear: both;
+}
+
+h1,h2,h3,h4 {
+    text-transform: lowercase;
+}
+
+h2,h3,h4 {
+    margin-bottom: 1em;
+    font-family: Bitter, serif;
+    color: #000000;
+}
+
+strong {
+    color: #000000;
+}
+p {
+    margin-bottom: 1.5em;
+}
+
+ul {
+    margin-bottom: 1.5em;
+}
+#bg {
+    background: url('images/fundo.png') top left repeat-x;
+    padding: 0 0 64px 0;
+}
+
+#banner {
+    position: relative;
+    padding: 24px;
+    height: 172px;
+    width: 932px;
+    margin: 0 0 0 0;
+    background: #fff;
+}
+#box1 {
+	width: 740;
+	
+	margin-left: 10px;
+	float: right;
+	min-width: 900px;
+}
+
+#content {
+    width: 950px;
+    margin: 0 0 0 0;
+    padding: 0;
+}
+
+#copyright {
+    text-align: center;
+    color: #819B95;
+    padding: 32px 0 0 0;
+}
+
+#header {
+    position: relative;
+    padding: 24px;
+    height: 150px;
+    width: 932px;
+    background: #3913b6;
+    color: #fff;
+}
+
+#logo {
+    position: absolute;
+    top: 0;
+    left: 380px;
+    height: 150px;
+    line-height: 150px;
+}
+
+#logo a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#logo h1 {
+    font-size: 2.75em;
+    font-family: Bitter, serif;
+   
+}
+
+#main {
+    position: relative;
+    padding: 24px;
+    width: 932px;
+    color: #5e5e5e;
+}
+#nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 47px;
+    line-height: 47px;
+    padding: 0 24px 0 24px;
+    width: 932px;
+    margin: 0 0 0 0;
+    background: #0b8aea;
+}
+
+#nav a {
+    text-decoration: none;
+    text-transform: lowercase;
+    color: #fff;
+}
+
+#nav li {
+    margin: 0 1em 0 60px;
+    padding: 0 1em 0 1em;
+}
+
+#nav li.active {
+    background: #fff;
+}
+
+#nav li.active a {
+    color: #34564F;
+}
+
+#nav ul {
+    list-style: none;
+}
+
+#nav ul li {
+    float: left;
+}
+
+#outer {
+    position: relative;
+    width: 980px;
+    margin: 0 auto 0 auto;
+    background: #fff;
+}
+#final {
+    text-align: center;
+    background: #3913b6;
+    color: #fff;
+    width: 980px;
+    float: left;
+    padding: 0;
+    margin: 0 0 0 185px;
+}

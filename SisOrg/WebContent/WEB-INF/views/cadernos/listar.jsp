@@ -9,30 +9,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Lista de cadernos</title>
 </head>
 <body>
 
 	<jsp:useBean id="dao" class="SisOrg.daos.CadernosDAO" />
-<table>
+	<table>
 		<tr>
-			<th>ID</th>
+			
 			<th>Nome</th>
+			<th> Notas </th>
 		</tr>
 
 		<c:forEach var="caderno" items="${cadernos}">
-
+			
 			<tr>
-				<td>${caderno.id}</td>
+				
 				<td>${caderno.nome }</td>
-			
-	<td><a href="/SisOrg/removercadernos?id=${caderno.id}"> Remover</a>
-			</td>
-
-			
+				<td><a href="/SisOrg/removercadernos?id=${caderno.id}"> Remover</a></td>
+				<td> <a href = "/SisOrg/alterarcadernos?id=${caderno.id}"> Alterarr</a></td>
 			</tr>
-			</c:forEach>
-		
+		</c:forEach>
+
 	</table>
 </body>
 </html>

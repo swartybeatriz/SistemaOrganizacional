@@ -78,7 +78,7 @@ public class UsuariosController {
 		
 		@RequestMapping ( value = "usuarios/alterar")
 		
-		public ModelAndView alterarcontatos ( Usuario u ){
+		public ModelAndView alterar ( Usuario u ){
 			
 			
 			UsuarioDAO dao = new UsuarioDAO();

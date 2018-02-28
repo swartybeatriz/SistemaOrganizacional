@@ -10,9 +10,6 @@ import java.util.List;
 
 import SisOrg.models.Caderno;
 
-
-
-
 public class CadernosDAO {
 
 	private Connection connection;
@@ -29,9 +26,9 @@ public class CadernosDAO {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, caderno.getNome());
-			
-// tem que setar o id das notas ?
-		
+
+			// tem que setar o id das notas ?
+
 			stmt.execute();
 			stmt.close();
 
@@ -43,7 +40,7 @@ public class CadernosDAO {
 
 		return true;
 	}
-	
+
 	public boolean remover(Caderno caderno) {
 		try {
 			PreparedStatement stmt = connection.prepareStatement("delete from cadernos where id=?;");
@@ -56,6 +53,7 @@ public class CadernosDAO {
 		}
 		return true;
 	}
+
 	public boolean alterar(Caderno caderno) {
 		String sql = "update cadernos set nome=?, where id=?";
 		try {
@@ -70,9 +68,9 @@ public class CadernosDAO {
 		}
 		return true;
 	}
-	
-public Caderno getById(long id) {
-		
+
+	public Caderno getById(long id) {
+
 		Caderno result = null;
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement("select * from cadernos where id =?;");
@@ -85,68 +83,63 @@ public Caderno getById(long id) {
 				result.setId(rs.getLong("id"));
 				result.setNome(rs.getString("nome"));
 
-				}
+			}
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		
 		return result;
-		
+
 	}
 
-public Caderno getByNome(String nome) {
+	public Caderno getByNome(String nome) {
 
-	Caderno result = null;
-	try {
-		PreparedStatement stmt = this.connection.prepareStatement("select * from cadernos where nome =?;");
-		stmt.setString(1, nome);
-		ResultSet rs = stmt.executeQuery();
+		Caderno result = null;
+		try {
+			PreparedStatement stmt = this.connection.prepareStatement("select * from cadernos where nome =?;");
+			stmt.setString(1, nome);
+			ResultSet rs = stmt.executeQuery();
 
-		while (rs.next()) {
-			
-			result = new Caderno();
-			result.setId(rs.getLong("id"));
-			result.setNome(rs.getString("nome"));
+			while (rs.next()) {
+
+				result = new Caderno();
+				result.setId(rs.getLong("id"));
+				result.setNome(rs.getString("nome"));
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		rs.close();
-		stmt.close();
-	} catch (SQLException e) {
-		e.printStackTrace();
+
+		return result;
+
 	}
 
-	return result;
+	public List<Caderno> getLista() {
 
-}
+		List<Caderno> result = new ArrayList<>();
 
-public List<Caderno> getLista() {
-	
-	List<Caderno> result = new ArrayList<>();
+		try {
+			PreparedStatement stmt = this.connection.prepareStatement("select * from cadernos");
+			ResultSet rs = stmt.executeQuery();
 
-	try {
-		PreparedStatement stmt = this.connection.prepareStatement("select * from cadernos");
-		ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
 
-		while (rs.next()) {
-		
-			Caderno caderno = new Caderno();
-			caderno.setId(rs.getInt("id"));
-			caderno.setNome(rs.getString("nome"));
-			
+				Caderno caderno = new Caderno();
+				caderno.setId(rs.getInt("id"));
+				caderno.setNome(rs.getString("nome"));
 
-		
-
-	
-	result.add(caderno);
+				result.add(caderno);
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		rs.close();
-		stmt.close();
-	} catch (SQLException e) {
-		e.printStackTrace();
-	}
 
-	return result;
-}
+		return result;
+	}
 }

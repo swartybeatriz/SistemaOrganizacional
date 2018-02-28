@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="CSS/style.css" />
 
 
 <style type="text/css">
@@ -78,23 +77,24 @@ li.dropdown {
 
 	<div class="center">
 
-
+	<div class = "ul">
+	<div class = "li">
 		<ul>
 			<li><a href="#home">Home</a></li>
 			<li class="dropdown"><a href="javascript:void(0)"
 				class="dropbtn">New</a>
 				<div class="dropdown-content">
-					<a href="cadernos/form">Caderno</a> <a href="notas/form-cadastro">Nota</a> 
+					<a href="#">Caderno</a> <a href="#">Nota</a> <a href="#">Link 3</a>
 				</div></li>
-			<li><a href="">Cadernos</a></li>
-			<li style="float: right"><a href="">Conta</a></li>
+			<li><a href="#news">Cadernos</a></li>
+			<li style="float: right"><a href="#about">Conta</a></li>
 
 
 		</ul>
 	</div>
-	
+	</div>
+	</div>
 
 	<c:import url="rodape.jsp" />
-
 </body>
 </html>
