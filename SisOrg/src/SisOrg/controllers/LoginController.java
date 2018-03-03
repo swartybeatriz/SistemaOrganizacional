@@ -27,4 +27,12 @@ public class LoginController {
 		System.out.println(">>> Não Autenticado");
 		return "redirect:loginForm";
 	}
+	
+	@RequestMapping("logout")
+	public String logout(HttpSession session) {
+	session.invalidate();
+	return "redirect:loginForm";
+	}
+	
+	
 }
