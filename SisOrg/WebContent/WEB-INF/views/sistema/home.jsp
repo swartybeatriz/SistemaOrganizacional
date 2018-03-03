@@ -6,12 +6,83 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 
-<style type="text/css">
+
+<style>
+body {
+	background-image:
+		url("http://i285.photobucket.com/albums/ll53/ellee2012/Cute/0-75.png");
+	background-repeat: repeat;
+}
+
+.center {
+	background-color: white;
+	margin: auto;
+	width: 40%;
+	border: 10px solid #87CEFF;
+	padding: 40px;
+	height: 518px;
+	color: #87CEFF;
+	font-size: 30px;
+}
+
+input[type=submit] {
+	width: 30%;
+	background-color: #87CEFF;
+	color: white;
+	padding: 14px 20px;
+	margin: 10px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=text], select {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=text]:focus {
+	background-color: lightblue;
+}
+
+.form {
+	margin: auto;
+	width: 20%;
+	padding: 40px;
+	height: 545px;
+}
+
+h1 {
+	font-size: 40px;
+	color: lightblue;
+	text-align: center;
+	padding: 0px;
+}
+
+span.psw {
+	display: block;
+	float: none;
+	font-size: 20px;
+}
+
 ul {
 	list-style-type: none;
 	margin: 0;
@@ -67,32 +138,39 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
 	display: block;
 }
+}
 </style>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Navegação</title>
 </head>
 <body>
-	<c:import url="cabeçalho.jsp" />
 
+	<c:import url="../cabeçalho.jsp" />
 	<div class="center">
 
-
 		<ul>
-			<li><a href="#home">Home</a></li>
+			<li><a href="SisOrg/">Home</a></li>
 			<li class="dropdown"><a href="javascript:void(0)"
 				class="dropbtn">New</a>
 				<div class="dropdown-content">
 					<a href="cadernos/form">Caderno</a> <a href="notas/form-cadastro">Nota</a>
 				</div></li>
-			<li><a href="">Cadernos</a></li>
-			<li style="float: right"><a href="">Conta</a></li>
+			<li><a href="cadernos">Cadernos</a></li>
+			<li style="float: right"><a href="
+			logout"> Logout</a></li>
 
 
 		</ul>
+
+		<h1>Bem vindo! ${usuarioLogado.email}</h1>
+		<h1>Organização é a chave do sucesso, aproveite!</h1>
+		<i class="fa fa-cloud"
+			style="font-size: 250px; color: lightblue; margin-left: 200px;">
+		</i>
+
+
+		<c:import url="../rodape.jsp" />
 	</div>
-
-
-	<c:import url="rodape.jsp" />
 
 </body>
 </html>

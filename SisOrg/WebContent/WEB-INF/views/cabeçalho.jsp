@@ -8,8 +8,21 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+<style>
 
-<title>Insert title here</title>
+.header {
+	background-color: white;
+	padding: 30px;
+	margin-right: -10px;
+	margin-left: -10px;
+	margin-top: -20px;
+	text-align: center;
+	color: #87CEFF;
+}
+
+
+
+</style>
 </head>
 <body>
 <div class="header">

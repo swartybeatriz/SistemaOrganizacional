@@ -7,11 +7,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="CSS/style.css" />
-<title>Insert title here</title>
+
+<style>
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: white;
+	color: #87CEFF;
+	text-align: center;
+	font-size: 20px;
+}
+</style>
 </head>
+
+
+
 <body>
-<div class="footer">
+	<div class="footer">
 		<p>Copyright ©</p>
 	</div>
 </body>
