@@ -73,7 +73,7 @@ public class UsuarioDAO {
 
 		Usuario result = null;
 		try {
-			PreparedStatement stmt = this.connection.prepareStatement("select * from contatos where id =?;");
+			PreparedStatement stmt = this.connection.prepareStatement("select * from usuarios where id =?;");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
@@ -151,9 +151,9 @@ public class UsuarioDAO {
 
 	}
 
-	public boolean existeUsuario(Usuario usuario) {
+	//public boolean existeUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
-		return false;
-	}
+		//return false;
+	//}
 
 }

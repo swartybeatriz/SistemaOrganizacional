@@ -9,8 +9,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import SisOrg.daos.CadernosDAO;
 import SisOrg.daos.NotaDAO;
+
 import SisOrg.models.Caderno;
 import SisOrg.models.Nota;
+
 
 @Controller
 public class NotasController {
@@ -31,7 +33,8 @@ public class NotasController {
 		return modelAndView;
 
 	}
-
+	
+	
 	@RequestMapping(value = "notas", method = RequestMethod.POST)
 
 	public String gravar(Nota n) {
@@ -39,8 +42,81 @@ public class NotasController {
 		NotaDAO dao = new NotaDAO();
 		dao.inserir(n);
 
-		return "sistema/home";
+		return "redirect:notas";
 
 	}
+	
+	@RequestMapping ( "/listar")
+	public ModelAndView listar (Caderno caderno) {
+		CadernosDAO dao = new CadernosDAO();
+		caderno = dao.getById(caderno.getId());
+		
+		
+		NotaDAO Notasdao = new NotaDAO ();
+		List <Nota> notas = Notasdao.getLista(caderno);  // error nessa linha
+		
+		System.out.println(notas.size());
+		System.out.println("entrando");
+		
+		ModelAndView modelAndView = new ModelAndView( "notas/listar");
+		modelAndView.addObject ( "notas", notas);
+		modelAndView.addObject ( "caderno", caderno);
+		return modelAndView; 
+		
+	}
+	
+	 @RequestMapping (value= "notas", method=RequestMethod.GET)
+		public ModelAndView listar () {
+			NotaDAO dao = new NotaDAO();
+			List<Nota> notas = dao.getListaa();
+			
+			ModelAndView modelAndView = new ModelAndView ("notas/listar");
+			modelAndView.addObject ("notas", notas);
+			
+			return modelAndView;
+		}
+	
+	 @RequestMapping ( value = "removernotas")
+		
+		public ModelAndView remover (Nota n) {
+
+			
+			NotaDAO dao = new NotaDAO();
+			
+			dao.remover(n);
+			
+			System.out.println("Excluindo Nota... ");
+			
+			return new ModelAndView("redirect:notas/listar")	;
+		}
+		
+		@RequestMapping ( value = "notas/selecionar")
+		
+		public ModelAndView Selecionar (Long id) {
+			
+			
+			NotaDAO dao = new NotaDAO() ;
+			Nota n = dao.getById(id);
+			
+			ModelAndView modelAndView = new ModelAndView ("notas/form-alterar");
+			modelAndView.addObject ("nota", n);
+
+			
+			return modelAndView;
+			
+		}
+@RequestMapping ( value = "notas/alterar", method = RequestMethod.POST )
+		
+		public String alterar ( Nota n ){
+			
+			
+			NotaDAO dao = new NotaDAO();
+			dao.alterar(n);
+			return "redirect:notas" ;
+			
+		}
+		
+		
+		
 
 }

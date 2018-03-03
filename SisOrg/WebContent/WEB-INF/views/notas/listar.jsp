@@ -1,34 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<style type="text/css">
-.header {
-background-color: white
-;
-padding: 30px;
-margin-right: -10px;
-margin-left: -10px;
-margin-top: -20px;
-text-align: center;
-color : #87CEFF;
-}
 
-.footer {
-position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
-background-color:white;
-color: #87CEFF;
-text-align: center;
-font-size:20px;
-}
+
+
+<style type="text/css">
+
 
 body {
 background-image:
@@ -39,13 +22,24 @@ background-repeat: repeat;
 .center {
 background-color: white;
     margin: auto;
-    width: 40%;
+    width: 60%;
     border: 10px solid #87CEFF;
     padding: 40px;
-    height: 518px; 
+    height: 520px; 
     color:#87CEFF;
     font-size:30px;
+    LINE-HEIGHT:40px
     
+}
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color:white;
+color: #87CEFF;
+text-align: center;
+font-size:20px;
 }
 
 
@@ -81,13 +75,6 @@ input[type=password] {
 }
 input[type=text]:focus {
     background-color: lightblue;
-}
-.form{
-margin: auto;
-width: 20%;
-padding: 40px;
-height: 545px;
-
 }
 
 h1{
@@ -156,41 +143,102 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
-    
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
 
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    color: silver;
+   
+}
 
+#customers tr:nth-child(even){background-color: #f2f2f2;}
 
+#customers tr:hover {background-color:  #87CEFF;}
 
-</style>
-<title>Cadastrar Nota</title>
-</head>
-<body>
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: silver;
+    color: white;
+  
+}
+    	</style>
+  </head>
+ 
+ 
+  <body>
+	
+	 <c:import url="../cabeçalho.jsp" />
+	
 
-	<c:import url="../cabeçalho.jsp" />
-	<form action="/SisOrg/notas" method="post">
 		
-		<div class="center">
-		<div>
-			<label>Nome: </label> <input type="text" name="nome"  placeholder=" name.."/>
-		</div>
+	
+	<div class = "center">
+	
+	<ul>
+			<li><a href="SisOrg/">Home</a></li>
+			<li class="dropdown"><a href="javascript:void(0)"
+				class="dropbtn">New</a>
+				<div class="dropdown-content">
+					<a href="cadernos/form">Caderno</a> <a href="notas/form-cadastro">Nota</a>
+				</div></li>
+				<li class="dropdown"><a href="javascript:void(0)"
+				class="dropbtn">List</a>
+				<div class="dropdown-content">
+					<a href="cadernos">Cadernos</a> <a href="notas">Notas</a>
+				</div></li>
+			<li style="float: right"><a href="
+			logout"> Logout</a></li>
 
-	<label>Caderno: </label> <select name="caderno.id">
+
+		</ul>
+	
+	
+	
+	
+	<table id = "customers">
+
+		<tr>
+
+			<th>Nome</th>
+			<th>Conteudo</th>
+			<th>Remover</th>
+			<th> Alterar </th>
+			
+		</tr>
+		<jsp:useBean id="dao" class="SisOrg.daos.NotaDAO" />
+	
+
+		<c:forEach var="nota" items="${notas}">
+
+			<tr>
+
+				<td>${nota.nome }</td>
+				<td> ${nota.conteudo}</td>
 				
-				<c:forEach var="caderno" items="${cadernos}">
-					<option value="${caderno.id}">${caderno.nome}</option>
-				</c:forEach>
-			</select>
-		<div>
-			<label>Conteudo: </label> <textarea name="conteudo" style="width: 600px; height: 200px;"></textarea>
-		</div>
-		<div>
-			<br> <input type="submit" value="Adicionar">
-		</div>
-		</div>
+			    <td><a href="/SisOrg/removernotas?id=${nota.id}">X</a></td> 
+						
+					<td><a href="/SisOrg/notas/selecionar?id=${nota.id}">
+							<i class="fa fa-bars"></i>
+					</a></td>
+						
+	
+						
+							
+						
+			</tr>
+		</c:forEach>
 
-	</form>
-		<c:import url="../rodape.jsp" />
+	</table>
+	
+	</div>
+	<c:import url="../rodape.jsp" />
+
 </body>
 </html>

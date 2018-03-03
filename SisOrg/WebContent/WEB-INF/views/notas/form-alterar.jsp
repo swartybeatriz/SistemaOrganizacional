@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
 
 <style type="text/css">
 .header {
@@ -162,35 +162,57 @@ li.dropdown {
 
 
 
-
 </style>
-<title>Cadastrar Nota</title>
+
 </head>
 <body>
 
-	<c:import url="../cabeçalho.jsp" />
-	<form action="/SisOrg/notas" method="post">
-		
-		<div class="center">
-		<div>
-			<label>Nome: </label> <input type="text" name="nome"  placeholder=" name.."/>
-		</div>
 
-	<label>Caderno: </label> <select name="caderno.id">
-				
+	<c:import url="../cabeçalho.jsp" />
+	
+	<div class="center">
+	<ul>
+			<li><a href="#home">Home</a></li>
+			<li class="dropdown"><a href="javascript:void(0)"
+				class="dropbtn">New</a>
+				<div class="dropdown-content">
+					<a href="cadernos/form">Caderno</a> <a href="notas/form-cadastro">Nota</a>
+				</div></li>
+			<li><a href="">Cadernos</a></li>
+			<li style="float: right"><a href="">Conta</a></li>
+
+		</ul>
+		<br>
+	
+		<i class="fa fa-cloud"
+			style="font-size: 40px; color: lightblue; margin-left: 325px;"> </i>
+
+		<form action="/SisOrg/notas/alterar" method="post" >
+		
+		<div>
+			<label>Nome</label> <input type="text" 
+				name="nome" value = "${nota.nome }"/>
+				</div>
+				<div>
+			<label>Caderno: </label> <select name="caderno.id">
 				<c:forEach var="caderno" items="${cadernos}">
 					<option value="${caderno.id}">${caderno.nome}</option>
 				</c:forEach>
 			</select>
-		<div>
-			<label>Conteudo: </label> <textarea name="conteudo" style="width: 600px; height: 200px;"></textarea>
 		</div>
 		<div>
-			<br> <input type="submit" value="Adicionar">
+			<label>Conteudo: </label> <textarea name="conteudo" style="width: 600px; height: 150px;  value = "${nota.conteudo}"></textarea>
 		</div>
+		<div>
+		 <input type="submit" value="Alterar">
 		</div>
 
-	</form>
-		<c:import url="../rodape.jsp" />
+		</form>
+	</div>
+	
+	<c:import url="../rodape.jsp" />
+
+
+
 </body>
 </html>

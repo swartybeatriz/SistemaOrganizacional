@@ -13,11 +13,6 @@ import SisOrg.models.Usuario;
 @Controller
 public class UsuariosController {
 	
-	@RequestMapping ("sistema/index")
-	public String index() {
-		
-		return "sistema/index";
-	}
 
 	@RequestMapping ("usuarios/form-cadastro")
 	public String form(){
@@ -33,16 +28,16 @@ public class UsuariosController {
 		UsuarioDAO dao = new UsuarioDAO ();
 		dao.inserir(u);
 		
-		return "sistema/home";
+		return "redirect:loginForm";
 		
 	}
 	 @RequestMapping (value= "usuarios", method=RequestMethod.GET)
 		public ModelAndView listar () {
 			UsuarioDAO dao = new UsuarioDAO ();
-			List<Usuario> contatos = dao.getLista();
+			List<Usuario> usuarios = dao.getLista();
 			
-			ModelAndView modelAndView = new ModelAndView ("contatos/listar");
-			modelAndView.addObject ("contatos", contatos);
+			ModelAndView modelAndView = new ModelAndView ("usuarios/listar");
+			modelAndView.addObject ("usuarios", usuarios);
 			
 			return modelAndView;
 		}
@@ -55,12 +50,12 @@ public class UsuariosController {
 			
 			dao.remover(u);
 			
-			System.out.println("Excluindo contato... ");
-			return listar();	
+			System.out.println("Excluindo usuario... ");
+			return new ModelAndView("redirect:usuarios");
 		}
 		
 		
-		@RequestMapping ( value = "contatos/selecionarContatos")
+		@RequestMapping ( value = "usuarios/selecionar")
 		
 		public ModelAndView SelecionarUsuarios (Long id) {
 			
@@ -68,7 +63,7 @@ public class UsuariosController {
 			UsuarioDAO dao = new UsuarioDAO() ;
 			Usuario u = dao.getById(id);
 			
-			ModelAndView modelAndView = new ModelAndView ("usuarios/form2");
+			ModelAndView modelAndView = new ModelAndView ("usuarios/form-alterar");
 			modelAndView.addObject ("usuario", u);
 
 			
@@ -90,7 +85,7 @@ public class UsuariosController {
 		
 		public ModelAndView validarLogin (Usuario u) {
 			
-			UsuarioDAO dao = new UsuarioDAO();
+		UsuarioDAO dao = new UsuarioDAO();
 			
 			dao.checkLogin(u);
 			

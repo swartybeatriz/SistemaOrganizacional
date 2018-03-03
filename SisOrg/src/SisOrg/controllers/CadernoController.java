@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import SisOrg.daos.CadernosDAO;
-
 import SisOrg.models.Caderno;
+
 
 
 
@@ -24,6 +24,7 @@ public class CadernoController {
 		return "cadernos/form-cadastro";
 	}
 	
+	
 	 @RequestMapping (value= "cadernos", method=RequestMethod.POST)
 		
 	 public String gravar (Caderno c) {
@@ -31,8 +32,7 @@ public class CadernoController {
 		CadernosDAO dao = new CadernosDAO ();
 		dao.inserir(c);
 		
-		return "sistema/home";
-		
+		return "redirect:cadernos" ;
 	}
 	 
 	
@@ -46,18 +46,6 @@ public class CadernoController {
 			
 			return modelAndView;
 		}
-	 @RequestMapping ( value = "removercadernos")
-		
-		public ModelAndView remover (Caderno c) {
-
-			
-			CadernosDAO dao = new CadernosDAO();
-			
-			dao.remover(c);
-			
-			System.out.println("Excluindo caderno... ");
-			return listar();	
-		}
 		
 		
 		@RequestMapping ("cadernos/selecionar")
@@ -68,7 +56,7 @@ public class CadernoController {
 			CadernosDAO dao = new CadernosDAO() ;
 			Caderno c = dao.getById(id);
 			
-			ModelAndView modelAndView = new ModelAndView ("cadernos/form2");
+			ModelAndView modelAndView = new ModelAndView ("cadernos/form-alterar");
 			modelAndView.addObject ("caderno", c);
 
 			
@@ -76,14 +64,29 @@ public class CadernoController {
 			
 		}
 		
-		@RequestMapping ( "cadernos/alterar")
+		@RequestMapping ( value = "alterar", method=RequestMethod.POST)
 		
 		public ModelAndView alterarcadernos ( Caderno c ){
 			
 			CadernosDAO dao = new CadernosDAO();
 			dao.alterar(c);
+			System.out.println("Alterando caderno... ");
 			return listar() ;
 			
 		}
+		
+		 @RequestMapping ( value = "removercadernos")
+			
+			public ModelAndView remover (Caderno c) {
+
+				
+				CadernosDAO dao = new CadernosDAO();
+				
+				dao.remover(c);
+				
+				System.out.println("Excluindo caderno... ");
+				return listar();	
+			}
+			
 		
 }

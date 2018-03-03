@@ -155,7 +155,11 @@ li.dropdown {
 				<div class="dropdown-content">
 					<a href="cadernos/form">Caderno</a> <a href="notas/form-cadastro">Nota</a>
 				</div></li>
-			<li><a href="cadernos">Cadernos</a></li>
+				<li class="dropdown"><a href="javascript:void(0)"
+				class="dropbtn">List</a>
+				<div class="dropdown-content">
+					<a href="cadernos">Cadernos</a> <a href="notas">Notas</a>
+				</div></li>
 			<li style="float: right"><a href="
 			logout"> Logout</a></li>
 

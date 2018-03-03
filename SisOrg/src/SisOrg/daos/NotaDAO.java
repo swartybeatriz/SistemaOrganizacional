@@ -7,8 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import SisOrg.models.Caderno;
 import SisOrg.models.Nota;
-import SisOrg.models.Usuario;
+
 
 
 public class NotaDAO {
@@ -45,7 +46,7 @@ public class NotaDAO {
 	}
 	
 	public boolean alterar(Nota notas) {
-		String sql = "update contatos set nome=?, texto=?";
+		String sql = "update notas set nome=?, texto=? where id=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, notas.getNome());
@@ -59,9 +60,9 @@ public class NotaDAO {
 		return true;
 	}
 
-	public boolean remover(Usuario notas) {
+	public boolean remover(Nota notas) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from usuarios where id=?;");
+			PreparedStatement stmt = connection.prepareStatement("delete from notas where id=?;");
 			stmt.setLong(1, notas.getId());
 			stmt.execute();
 			stmt.close();
@@ -72,22 +73,20 @@ public class NotaDAO {
 		return true;
 	}
 	
-	
-	public Usuario getById(long id) {
+	public Nota getById(long id) {
 		
-		Usuario result = null;
+		Nota result = null;
 		try {
-			PreparedStatement stmt = this.connection.prepareStatement("select * from contatos where id =?;");
+			PreparedStatement stmt = this.connection.prepareStatement("select * from notas where id =?;");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
 				
-				result = new Usuario();
+				result = new Nota();
 				result.setId(rs.getLong("id"));
 				result.setNome(rs.getString("nome"));
-				result.setEmail(rs.getString("email"));
-				result.setSenha(rs.getString("senha"));
+	
 
 				}
 			rs.close();
@@ -100,7 +99,41 @@ public class NotaDAO {
 		return result;
 		
 	}
-	public List<Nota> getLista() {
+	public List <Nota> getLista(Caderno c ) {
+		List <Nota> result = new ArrayList<>();
+		
+		try {
+			PreparedStatement stmt = this.connection.prepareStatement("select * from notas where id_caderno =? ");
+			
+			stmt.setLong(1, c.getId()); // erro nessa linha
+			
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				
+				Nota nota = new Nota ();
+				nota.setId(rs.getLong("id"));
+				nota.setNome(rs.getString("nome"));
+				nota.setConteudo(rs.getString("conteudo"));
+				
+				nota.setCaderno(new Caderno());
+				nota.getCaderno().setId(rs.getLong("id"));
+				
+				
+				result.add(nota);
+			}
+			
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+}
+	
+	public List<Nota> getListaa() {
 		List<Nota> result = new ArrayList<>();
 
 		try {
@@ -112,7 +145,7 @@ public class NotaDAO {
 				Nota notas = new Nota();
 				notas.setId(rs.getLong("id"));
 				notas.setNome(rs.getString("nome"));
-				notas.setConteudo(rs.getString("texto")); // texto no banco, conteudo no model
+				notas.setConteudo(rs.getString("texto")); 
 				
 				
 

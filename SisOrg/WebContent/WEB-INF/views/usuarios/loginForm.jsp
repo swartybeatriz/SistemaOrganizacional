@@ -139,7 +139,7 @@ span.psw {
 </style>
 </head>
 <body>
-	<c:import url="cabeçalho.jsp" />
+	<c:import url="../cabeçalho.jsp" />
 
 	<div class="center">
 
@@ -163,7 +163,7 @@ span.psw {
 
 	</div>
 
-	<c:import url="rodape.jsp" />
+	<c:import url="../rodape.jsp" />
 
 
 	</form>

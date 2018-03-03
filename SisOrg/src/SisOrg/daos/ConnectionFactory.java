@@ -9,7 +9,7 @@ public class ConnectionFactory {
 	private static Connection con = null;
 	private static final String banco = "bloco";
 	private static final String user = "root";
-	private static final String password = "lab01";
+	private static final String password = "1234";
 
 	public static Connection getConnection() {
 		if (con == null) {
@@ -17,6 +17,7 @@ public class ConnectionFactory {
 				Class.forName("com.mysql.jdbc.Driver");
 				con = DriverManager.getConnection(
 						"jdbc:mysql://localhost/" + banco, user, password);
+				
 
 			} catch (SQLException | ClassNotFoundException e) {
 				// TODO Auto-generated catch block
