@@ -10,15 +10,14 @@ create table notas(
 id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 id_caderno int,
 nome VARCHAR(50),
-dataCriacao date,
 texto VARCHAR(1000),
-foreign key (id_caderno) references caderno (id)
+foreign key (id_caderno) references cadernos (id)
 
 );
 
-create table caderno(
+create table cadernos(
 id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-id_notas int ,
-nome VARCHAR(50)
+nome VARCHAR(50),
+descricao VARCHAR (200)
 
 );
