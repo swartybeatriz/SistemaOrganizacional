@@ -1,15 +1,11 @@
 package SisOrg.models;
 
-import java.util.Calendar;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
 public class Nota {
 
 	private String nome;
 	private String conteudo;
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Calendar dataCriacaoNotas;
 	private Caderno caderno;
 	private Long id;
 
@@ -35,14 +31,6 @@ public class Nota {
 
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
-	}
-
-	public Calendar getDataCriacaoNotas() {
-		return dataCriacaoNotas;
-	}
-
-	public void setDataCriacaoNotas(Calendar dataCriacaoNotas) {
-		this.dataCriacaoNotas = dataCriacaoNotas;
 	}
 
 	public void setEmail(String string) {
