@@ -156,7 +156,7 @@ padding: 0px;
 
 </head>
 <body>
-	<c:import url="cabeçalho.jsp" />
+	<c:import url="../cabeçalho.jsp" />
 
 	<div class="center">
 		<i class="fa fa-cloud"
@@ -178,7 +178,7 @@ padding: 0px;
 		</form>
 	</div>
 
-	<c:import url="rodape.jsp" />
+	<c:import url="../rodape.jsp" />
 
 
 </body>
