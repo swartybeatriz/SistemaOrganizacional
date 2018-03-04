@@ -166,7 +166,7 @@ li.dropdown {
 
 		</ul>
 
-		<h1>Bem vindo! ${usuarioLogado.email}</h1>
+		<h1>Bem vindo! </h1>
 		<h1>Organização é a chave do sucesso, aproveite!</h1>
 		<i class="fa fa-cloud"
 			style="font-size: 250px; color: lightblue; margin-left: 200px;">
