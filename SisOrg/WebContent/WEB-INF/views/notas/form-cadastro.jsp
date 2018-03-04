@@ -172,6 +172,10 @@ li.dropdown {
 	<form action="/SisOrg/notas" method="post">
 		
 		<div class="center">
+		
+		<i class="fa fa-cloud"
+			style="font-size: 20px; color: lightblue; margin-left: 325px;"> </i>
+		<h1>Crie uma nova nota</h1>
 		<div>
 			<label>Nome: </label> <input type="text" name="nome"  placeholder=" name.."/>
 		</div>
