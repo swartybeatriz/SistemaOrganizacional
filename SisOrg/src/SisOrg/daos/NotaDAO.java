@@ -99,13 +99,13 @@ public class NotaDAO {
 		return result;
 		
 	}
-	public List <Nota> getLista(Caderno c ) {
+	public List <Nota> getLista(Caderno c ) { //Listagem das notas pelo id do caderno
 		List <Nota> result = new ArrayList<>();
 		
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement("select * from notas where id_caderno =? ");
 			
-			stmt.setLong(1, c.getId()); // erro nessa linha
+			stmt.setLong(1, c.getId()); 
 			
 			
 			ResultSet rs = stmt.executeQuery();
@@ -133,7 +133,7 @@ public class NotaDAO {
 		return result;
 }
 	
-	public List<Nota> getListaa() {
+	public List<Nota> getListaa() {   //listagem das notas geral
 		List<Nota> result = new ArrayList<>();
 
 		try {

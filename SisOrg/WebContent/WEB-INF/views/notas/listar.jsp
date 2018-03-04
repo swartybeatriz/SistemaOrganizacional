@@ -180,7 +180,6 @@ li.dropdown {
 		
 	
 	<div class = "center">
-	
 	<ul>
 			<li><a href="SisOrg/">Home</a></li>
 			<li class="dropdown"><a href="javascript:void(0)"
@@ -191,7 +190,7 @@ li.dropdown {
 				<li class="dropdown"><a href="javascript:void(0)"
 				class="dropbtn">List</a>
 				<div class="dropdown-content">
-					<a href="cadernos">Cadernos</a> <a href="notas">Notas</a>
+					<a href="cadernos">Cadernos</a> <a href="listarNotas">Notas</a>
 				</div></li>
 			<li style="float: right"><a href="
 			logout"> Logout</a></li>

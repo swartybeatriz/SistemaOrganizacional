@@ -53,7 +53,7 @@ public class NotasController {
 		
 		
 		NotaDAO Notasdao = new NotaDAO ();
-		List <Nota> notas = Notasdao.getLista(caderno);  // error nessa linha
+		List <Nota> notas = Notasdao.getLista(caderno);  
 		
 		System.out.println(notas.size());
 		System.out.println("entrando");
@@ -66,7 +66,7 @@ public class NotasController {
 	}
 	
 	 @RequestMapping (value= "notas", method=RequestMethod.GET)
-		public ModelAndView listar () {
+		public ModelAndView listarNotas () {
 			NotaDAO dao = new NotaDAO();
 			List<Nota> notas = dao.getListaa();
 			
@@ -87,7 +87,7 @@ public class NotasController {
 			
 			System.out.println("Excluindo Nota... ");
 			
-			return new ModelAndView("redirect:notas/listar")	;
+			return new ModelAndView("redirect:notas")	;
 		}
 		
 		@RequestMapping ( value = "notas/selecionar")
@@ -107,15 +107,14 @@ public class NotasController {
 		}
 @RequestMapping ( value = "notas/alterar", method = RequestMethod.POST )
 		
-		public String alterar ( Nota n ){
-			
-			
-			NotaDAO dao = new NotaDAO();
-			dao.alterar(n);
-			return "redirect:notas" ;
-			
-		}
-		
+public ModelAndView alterar ( Nota n){
+	
+	NotaDAO dao = new NotaDAO();
+	dao.alterar(n);
+	System.out.println("Alterando nota... ");
+	return listarNotas() ;
+	
+}
 		
 		
 

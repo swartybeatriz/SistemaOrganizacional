@@ -171,18 +171,23 @@ li.dropdown {
 	<c:import url="../cabeçalho.jsp" />
 	
 	<div class="center">
-	<ul>
-			<li><a href="#home">Home</a></li>
+		<ul>
+			<li><a href="SisOrg/">Home</a></li>
 			<li class="dropdown"><a href="javascript:void(0)"
 				class="dropbtn">New</a>
 				<div class="dropdown-content">
 					<a href="cadernos/form">Caderno</a> <a href="notas/form-cadastro">Nota</a>
 				</div></li>
-			<li><a href="">Cadernos</a></li>
-			<li style="float: right"><a href="">Conta</a></li>
+				<li class="dropdown"><a href="javascript:void(0)"
+				class="dropbtn">List</a>
+				<div class="dropdown-content">
+					<a href="cadernos">Cadernos</a> <a href="notas">Notas</a>
+				</div></li>
+			<li style="float: right"><a href="
+			logout"> Logout</a></li>
+
 
 		</ul>
-		<br>
 	
 		<i class="fa fa-cloud"
 			style="font-size: 40px; color: lightblue; margin-left: 325px;"> </i>

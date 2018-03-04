@@ -154,7 +154,7 @@ li.dropdown {
 	<c:import url="../cabeçalho.jsp" />
 	
 	<div class="center">
-		<ul>
+			<ul>
 			<li><a href="SisOrg/">Home</a></li>
 			<li class="dropdown"><a href="javascript:void(0)"
 				class="dropbtn">New</a>
@@ -164,7 +164,7 @@ li.dropdown {
 				<li class="dropdown"><a href="javascript:void(0)"
 				class="dropbtn">List</a>
 				<div class="dropdown-content">
-					<a href="cadernos">Cadernos</a> <a href="notas">Notas</a>
+					<a href="cadernos">Cadernos</a> <a href="listarNotas">Notas</a>
 				</div></li>
 			<li style="float: right"><a href="
 			logout"> Logout</a></li>
